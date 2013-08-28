@@ -66,6 +66,4 @@ warning: 20
 
 ## Resources
 
-* Repository: http://github.com/pelargir/auto-session-timeout/
-* Blog: http://www.matthewbass.com
-* Author: Matthew Bass
+* Source Repository: http://github.com/pelargir/auto-session-timeout/
