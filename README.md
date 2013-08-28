@@ -37,15 +37,20 @@ Check below configuration for warning message
     </html>
 
 frequency refers to how frequently browser interactive with server to find the session details,
+
 timeout refers to auto session time out, if you set auto_session_timeout: 2.minutes on application_controller, you should set 120 seconds here,
+
 start describes the starting time of server interaction, if it is 60, first server interaction will start after 60 seconds,
+
 warning describes the starting time of warning message before session timed out, if is 20, dialog warning message will popup before 20 seconds of timeout.
 
 Default values here:
-timeout: 60
-frequecy: 60
-start: 60
+
+timeout: 60,
+frequecy: 60,
+start: 60,
 warning: 20
+
 ## TODO
 
 * current_user must be defined
