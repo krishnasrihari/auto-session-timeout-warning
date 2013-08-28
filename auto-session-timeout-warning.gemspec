@@ -6,7 +6,7 @@ require 'auto/session/timeout/warning/version'
 Gem::Specification.new do |spec|
   spec.name          = "auto-session-timeout-warning"
   spec.version       = Auto::Session::Timeout::Warning::VERSION
-  spec.authors       = ["Matthew Bass","Krishna Srihari"]
+  spec.authors       = ["Krishna Srihari"]
   spec.email         = ["krishna.srihari@gmail.com"]
   spec.description   = %q{jQuery automatic session timeout warning in a Rails application.}
   spec.summary       = %q{jQuery automatic session timeout in a Rails application.}
