@@ -27,7 +27,7 @@ module AutoSessionTimeoutWarning
 
   def render_session_status
     response.headers["Etag"] = ""  # clear etags to prevent caching
-    render text: !!current_user, status: 200
+    render json: {live: !!current_user, timeout: session[:auto_session_expires_at]}
   end
 
   def render_session_timeout

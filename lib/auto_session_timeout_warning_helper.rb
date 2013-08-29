@@ -32,9 +32,11 @@ if(typeof(jQuery) != 'undefined'){
     $.ajax({
       url: '/active',
       success: function(data) {
-        if(data == 'false'){
+        if(new Date(data.timeout).getTime() < (new Date().getTime() + #{warning} * 1000)){
           showDialog();
-          setTimeout(doTimeout, (#{warning} * 1000));
+        }
+        if(data.live == false){
+          window.location.href = '/timeout';
         }
       }
     });
@@ -44,10 +46,6 @@ if(typeof(jQuery) != 'undefined'){
 
   function showDialog(){
     $('.logout_dialog').trigger('click');
-  }
-
-  function doTimeout(){
-    window.location.href = '/timeout';
   }
 }
 JS
