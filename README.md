@@ -26,11 +26,22 @@ Add before_timedout_action in application controller
 ```
 class ApplicationController < ActionController::Base
   #Add protected before_timedout action
-  #If you want to override the before_timedout, just add protected before_timedout action and add your customized implementation here
   before_timedout_action
 end
 ```
 
+If you want to override the before_timedout, just add protected before_timedout action and add your custom implementation here
+```
+class ApplicationController < ActionController::Base
+  before_timedout_action
+
+  protected
+  #override before_timedout
+  def before_timedout
+  	#your custom code here
+  end
+end
+```
 
 and follow all steps as for https://github.com/pelargir/auto-session-timeout.
 
