@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["krishna.srihari@gmail.com"]
   spec.description   = %q{jQuery automatic session timeout warning in a Rails application.}
   spec.summary       = %q{jQuery automatic session timeout in a Rails application.}
-  spec.homepage      = "https://github.com/krishnasrihari/jquery-auto-session-timeout"
+  spec.homepage      = "https://github.com/krishnasrihari/auto-session-timeout-warning"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
