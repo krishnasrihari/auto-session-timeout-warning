@@ -19,14 +19,12 @@ Or install it yourself as:
     $ gem install auto-session-timeout-warning
 
 ## Usage
-Add jquery and jquery-ui on your application.js file
+Add jquery and jquery-ui on your application.js file, set the current_user helper method in application controller if its not yet defined
 
-and follow all usage steps as for https://github.com/pelargir/auto-session-timeout.
+and follow all steps as for https://github.com/pelargir/auto-session-timeout.
 
 Check below configuration for warning message
 
-## Current user
-* current_user must be defined
 
 ## Warning message Configuration
     <html>
