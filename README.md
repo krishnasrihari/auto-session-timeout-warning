@@ -21,7 +21,19 @@ Or install it yourself as:
 ## Usage
 Add jquery and jquery-ui on your application.js file, set the current_user helper method in application controller if its not yet defined
 
+Add before_timedout_action in application controller
+
+```
+class ApplicationController < ActionController::Base
+  #Add protected before_timedout action
+  #If you want to override the before_timedout, just add protected before_timedout action and add your customized implementation here
+  before_timedout_action
+end
+```
+
+
 and follow all steps as for https://github.com/pelargir/auto-session-timeout.
+
 
 Check below configuration for warning message
 

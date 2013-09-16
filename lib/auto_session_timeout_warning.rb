@@ -9,6 +9,7 @@ module AutoSessionTimeoutWarning
     def auto_session_timeout(seconds=nil)
       prepend_before_filter do |c|
         if c.session[:auto_session_expires_at] && c.session[:auto_session_expires_at] < Time.now
+          c.send :before_timedout
           c.send :reset_session
         else
           unless c.url_for(c.params).start_with?(c.send(:active_url))
@@ -22,6 +23,11 @@ module AutoSessionTimeoutWarning
     def auto_session_timeout_actions
       define_method(:active) { render_session_status }
       define_method(:timeout) { render_session_timeout }
+    end
+
+    def before_timedout_action
+      define_method(:before_timedout){}
+      send(:protected, :before_timedout)
     end
   end
 
