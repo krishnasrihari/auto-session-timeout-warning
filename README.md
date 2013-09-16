@@ -25,6 +25,9 @@ and follow all usage steps as for https://github.com/pelargir/auto-session-timeo
 
 Check below configuration for warning message
 
+## Current user
+* current_user must be defined
+
 ## Warning message Configuration
     <html>
       <head>...</head>
@@ -52,8 +55,6 @@ start: 60,
 warning: 20
 
 ## TODO
-
-* current_user must be defined
 * setting timeout in controller vs. user
 
 ## Contributing
