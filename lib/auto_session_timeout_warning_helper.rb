@@ -52,12 +52,19 @@ JS
     javascript_tag(code)
   end
 
+  # Generates viewport-covering dialog HTML with message in center
+  #   options={} are output to HTML. Be CAREFUL about XSS/CSRF!
   def auto_session_warning_tag(options={})
-    "<div id='logout_dialog' title='Logout Message' style='display:none;'>
-      You are about to be logged out of this system.
-      <br/><br/>
-      Please click Continue if you want to stay logged in.
-      </div> <div class='logout_dialog'></div>".html_safe
+    default_message = "You are about to be logged out due to inactivity.<br/><br/>Please click &lsquo;Continue&rsquo; to stay logged in."
+    html_message = options[:message] || default_message
+    warning_title = options[:title] || "Logout Warning"
+    warning_classes = !!(options[:classes]) ? ' class="' + options[:classes] + '"' : ''
+
+    # Marked .html_safe -- Passed strings are output directly to HTML!
+    "<div id='logout_dialog' title='#{warning_title}' style='display:none;'#{warning_classes}>
+      #{html_message}
+    </div>
+    <div class='logout_dialog'></div>".html_safe
   end
 end
 
