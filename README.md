@@ -1,8 +1,10 @@
 # auto-session-timeout-warning
 
 This provides warning message before auto session timeout in Rails application,
-if you don't looking for warning message before session timeout please check source gem
+if you don't looking for warning message before session timeout please find the auto session timeout gem here
+
 https://github.com/pelargir/auto-session-timeout
+
 ---
 ## Installation
 

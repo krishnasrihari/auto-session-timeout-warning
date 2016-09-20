@@ -8,7 +8,6 @@ module AutoSessionTimeoutWarningHelper
 if(typeof(jQuery) != 'undefined'){
   $("#logout_dialog").dialog({
     modal: true,
-    bgiframe: true,
     width: 500,
     height: 180,
     autoOpen: false,
@@ -18,11 +17,19 @@ if(typeof(jQuery) != 'undefined'){
   $(".logout_dialog").click(function (e) {
     e.preventDefault();
 
-    $("#logout_dialog").dialog('option', 'buttons', {
-      "Continue": function () {
-        window.location.reload();
-      }
-    });
+    $("#logout_dialog").dialog('option', 'buttons', 
+      [
+        {
+          text: "Continue",
+          icons: {
+            primary: "ui-icon-heart"
+          },
+          click: function () {
+            window.location.reload();
+          }
+        }
+      ]
+    );
 
     $("#logout_dialog").dialog("open");
 
