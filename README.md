@@ -18,14 +18,23 @@ Or install it yourself as:
 
     $ gem install auto-session-timeout-warning
 
-## Usage
+## How to use?
+### Add jQuery and jQuery UI
 Add jquery and jquery-ui on your application.js file, set the current_user helper method in application controller if its not yet defined
+
+### Setup 
+setup your application controller to use auto timeout warning. Here I setup the session timeout warning to 20 minutes of inactivity.
+```
+class ApplicationController < ActionController::Base
+  auto_session_timeout 20.minutes
+end  
+```
+
 
 Add before_timedout_action in application controller
 
 ```
 class ApplicationController < ActionController::Base
-  #Add protected before_timedout action
   before_timedout_action
 end
 ```
@@ -43,33 +52,28 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-and follow all steps as for https://github.com/pelargir/auto-session-timeout.
-
-
 Check below configuration for warning message
 
-
-## Warning message Configuration
-    <html>
-      <head>...</head>
+### Warning message configuration
+Add warning tag and auto session timeout config 
       <body>
         <% if current_user %>
+          <%= auto_session_warning_tag %>
           <%= auto_session_timeout_js timeout: 60, frequency: 60, start: 60, warning: 20 %>
         <% end %>
         ...
       </body>
-    </html>
 
-frequency refers to how frequently browser interactive with server to find the session details,
+##### auto_session_timeout_js config details here
+**frequency:** how frequently browser interactive with server to find the session details,
 
-timeout refers to auto session time out, if you set auto_session_timeout: 2.minutes on application_controller, you should set 120 seconds here,
+**timeout:** auto session time out in seconds. If you set auto_session_timeout: 2.minutes on application_controller, you should set 120 seconds here.
 
-start describes the starting time of server interaction, if it is 60, first server interaction will start after 60 seconds,
+**start:** starting time of server interaction. If it is 60, first server interaction will start after 60 seconds,
 
-warning describes the starting time of warning message before session timed out, if is 20, dialog warning message will popup before 20 seconds of timeout.
+**warning:** Show warning message before session timed out. If it is 20, dialog warning message will popup before 20 seconds of timeout.
 
-Default values here:
-
+*Default values here:*
 timeout: 60,
 frequecy: 60,
 start: 60,
